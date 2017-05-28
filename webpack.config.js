@@ -12,14 +12,17 @@ module.exports = {
     module : {
         rules: [
             { test: /\.js$/, exclude: /node_modules/, use: "babel-loader" },
-            { test: /\.scss/, exclude: /node_modules/, use: ExtractTextPlugin.extract({
+            { test: /\.sass/, exclude: /node_modules/, use: ExtractTextPlugin.extract({
                 fallback: "style-loader",
                 use:["css-loader", "sass-loader"]
             })}
         ]
     },
     plugins : [
-        new HtmlWebpackPlugin(),
+        new HtmlWebpackPlugin({
+          title: "MM",
+          template: 'src/index.html'
+        }),
         new ExtractTextPlugin("app.css")
     ]
 }

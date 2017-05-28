@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import Styles from './styles.scss';
+import Styles from './styles.sass';
 
 ReactDom.render(
-    <h1>Hello Wrold!</h1>,
+    <h1>Hello World!!</h1>,
     document.getElementById('root')
 );
