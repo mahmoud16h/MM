@@ -1,8 +1,9 @@
 import React from 'react';
 import ReactDom from 'react-dom';
 import Styles from './styles.sass';
+import Homepage from './pages/homepage'
 
 ReactDom.render(
-    <h1>Hello World!!</h1>,
+    <Homepage/>,
     document.getElementById('root')
 );
