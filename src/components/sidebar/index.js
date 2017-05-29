@@ -2,6 +2,10 @@ import React from 'react';
 
 export default class Sidebar extends React.Component{
   render(){
-    return (<div> SIDEBAR </div>)
+    return (
+      <div className= "sidebar">
+        SIDEBAR 
+      </div>
+    )
   }
 }
