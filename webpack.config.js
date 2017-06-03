@@ -20,7 +20,7 @@ module.exports = {
     },
     plugins : [
         new HtmlWebpackPlugin({
-          title: "MM",
+          title: "Picture-Tagger",
           template: 'src/index.html'
         }),
         new ExtractTextPlugin("app.css")
