@@ -1,11 +1,12 @@
 import React from 'react'
+import Tag from '../tag'
 
 export default class Picture extends React.Component{
 
   getTags(){
     if(this.props.picture.tags){
-    return this.props.picture.tags.map(tag => {
-      return (<div className="tag"> {tag.name} </div>);
+    return this.props.picture.tags.map(function(tag, index){
+      return <Tag key={index} tagName={tag.name}/>;
     })
   }
   }

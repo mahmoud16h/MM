@@ -9,7 +9,10 @@ let pictures = [
   {text : "pic 3", tags : [{name: "bad"}]},
 ];
 
+let tags = ["Thailand", "Lebanon", "Qatar"]
+
+
 render(
-  <PictureHolder pictures={pictures}/>,
+  <PictureHolder pictures={pictures} tags={tags}/>,
   document.getElementById('root')
 );

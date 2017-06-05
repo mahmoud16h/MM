@@ -1,5 +1,6 @@
 import React from 'react';
 import Picture from '../picture'
+import Tagger from '../tagger'
 
 export default class PictureHolder extends React.Component{
 
@@ -69,14 +70,21 @@ export default class PictureHolder extends React.Component{
 
   render(){
 
+
     let pictures = this.props.pictures.map((pic) => {
       return <Picture picture={pic}/>
     })
 
+
     return(
-      <div id="picture-holder">
+      <div className="tagger-div">
+        <div id="picture-holder">
           {pictures[this.state.currentPictureIndex]}
+        </div>
+
+        <Tagger tags={this.props.tags}/>
+
       </div>
-    );
+    )
   }
 }
