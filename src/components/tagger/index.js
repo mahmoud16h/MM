@@ -3,11 +3,9 @@ import Tag from '../tag'
 
 export default class Tagger extends React.Component{
 
-
-
   render(){
     let tags = this.props.tags.map(function(tag, index){
-      return (<Tag key={index} tagName={tag}/>)
+      return (<Tag hasOnClick={true} key={index} tagName={tag} />)
     })
 
     return (
