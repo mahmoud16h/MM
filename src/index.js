@@ -1,7 +1,12 @@
 import React from 'react';
 import {render} from 'react-dom';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux'
+import {allReducers} from './reducers'
 import Styles from './styles.sass';
 import PictureHolder from './components/picture-holder/'
+
+const store = createStore(allReducers);
 
 let pictures = [
   {text : "pic 1", tags : [{name: "happy"}, {name: "phi phi"}]},
@@ -13,6 +18,8 @@ let tags = ["Thailand", "Lebanon", "Qatar"]
 
 
 render(
-  <PictureHolder pictures={pictures} tags={tags}/>,
-  document.getElementById('root')
+  <Provider store = {store}>
+    <PictureHolder pictures={pictures} tags={tags}/>
+  </Provider>
+    ,document.getElementById('root')
 );
