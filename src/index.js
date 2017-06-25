@@ -12,11 +12,12 @@ const initialState = {
     {text : "pic 2", tags : [{name: "happy"}, {name: "fun"}]},
     {text : "pic 3", tags : [{name: "bad"}]},
   ],
-  tags: ["Thailand", "Lebanon", "Qatar"]
+  tags: ["Thailand", "Lebanon", "Qatar"],
+
+  currentPictureIndex: 0
 }
 
 const store = createStore(allReducers, initialState);
-
 
 render(
   <Provider store={store}>

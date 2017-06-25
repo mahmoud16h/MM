@@ -38,18 +38,18 @@ class PictureHolder extends React.Component{
         if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
             if ( xDiff > 0 ) {
                 // swiped left
-                if(this.state.currentPictureIndex !== this.props.pictures.length - 1){
+                if(this.props.currentPictureIndex !== this.props.pictures.length - 1){
                     this.setState({
-                        currentPictureIndex : this.state.currentPictureIndex + 1
+                        currentPictureIndex : this.props.currentPictureIndex + 1
                     })
                 }else{
                     console.log('cant swipe left anymore')
                 }
             } else {
                 /* right swipe */
-                if(this.state.currentPictureIndex !== 0){
+                if(this.props.currentPictureIndex !== 0){
                     this.setState({
-                        currentPictureIndex : this.state.currentPictureIndex - 1
+                        currentPictureIndex : this.props.currentPictureIndex - 1
                     })
                 }else{
                     console.log('cant swipe right anymore')
@@ -81,7 +81,7 @@ class PictureHolder extends React.Component{
         return(
             <div className="tagger-div">
                 <div id="picture-holder">
-                    {pictures[this.state.currentPictureIndex]}
+                    {pictures[this.props.currentPictureIndex]}
                 </div>
 
                 <Tagger tags={this.props.tags}/>
@@ -92,10 +92,10 @@ class PictureHolder extends React.Component{
 }
 
 const mapStateToProps = (state) =>{
-    console.log(state);
     return {
         pictures: state.pictures,
-        tags: state.tags
+        tags: state.tags,
+        currentPictureIndex: state.currentPictureIndex
     }
 }
 

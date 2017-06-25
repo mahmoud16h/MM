@@ -1,7 +1,7 @@
 const PictureReducer = (state=null, action) => {
     switch (action.type) {
         case 'TODO':
-            console.log("executed todo");
+            console.log(state);
             return state;
         default:
             return state
