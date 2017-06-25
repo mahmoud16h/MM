@@ -1,8 +1,9 @@
 import React from 'react';
 import Picture from '../picture'
 import Tagger from '../tagger'
+import {connect} from 'react-redux'
 
-export default class PictureHolder extends React.Component{
+class PictureHolder extends React.Component{
 
   constructor(props){
     super(props);
@@ -71,6 +72,7 @@ export default class PictureHolder extends React.Component{
   render(){
 
 
+
     let pictures = this.props.pictures.map((pic) => {
       return <Picture picture={pic}/>
     })
@@ -88,3 +90,12 @@ export default class PictureHolder extends React.Component{
     )
   }
 }
+
+const mapStateToProps = (state) =>{
+  return {
+    pictures: state.pictures
+  }
+}
+
+
+export default connect(mapStateToProps)(PictureHolder)

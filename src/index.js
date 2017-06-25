@@ -6,15 +6,17 @@ import allReducers from './reducers'
 import Styles from './styles.sass';
 import PictureHolder from './components/picture-holder/'
 
-const store = createStore(allReducers);
+const initialState = {
+  pictures: [
+    {text : "pic 1", tags : [{name: "happy"}, {name: "phi phi"}]},
+    {text : "pic 2", tags : [{name: "happy"}, {name: "fun"}]},
+    {text : "pic 3", tags : [{name: "bad"}]},
+  ],
 
-let pictures = [
-  {text : "pic 1", tags : [{name: "happy"}, {name: "phi phi"}]},
-  {text : "pic 2", tags : [{name: "happy"}, {name: "fun"}]},
-  {text : "pic 3", tags : [{name: "bad"}]},
-];
+  tags: ["Thailand", "Lebanon", "Qatar"]
+}
 
-let tags = ["Thailand", "Lebanon", "Qatar"]
+const store = createStore(allReducers, initialState);
 
 
 render(
