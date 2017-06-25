@@ -9,7 +9,6 @@ class PictureHolder extends React.Component{
     constructor(props){
         super(props);
         this.state= {
-            currentPictureIndex: 0,
             xDown: null,
             yDown: null
         }
@@ -68,12 +67,9 @@ class PictureHolder extends React.Component{
 
     render(){
 
-
-
         let pictures = this.props.pictures.map((pic) => {
             return <Picture picture={pic}/>
         })
-
 
         return(
             <div className="tagger-div">
@@ -102,6 +98,5 @@ const mapDispatchToProps = (dispatch, ownProps) =>{
         decrementPictureIndex : () => dispatch(decrementPictureIndex())
     }
 }
-
 
 export default connect(mapStateToProps, mapDispatchToProps)(PictureHolder)
