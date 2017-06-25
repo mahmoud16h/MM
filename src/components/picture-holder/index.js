@@ -2,6 +2,7 @@ import React from 'react';
 import Picture from '../picture'
 import Tagger from '../tagger'
 import {connect} from 'react-redux'
+import { incrementPictureIndex , decrementPictureIndex} from '../../actions/PictureIndexActions'
 
 class PictureHolder extends React.Component{
 
@@ -39,18 +40,14 @@ class PictureHolder extends React.Component{
             if ( xDiff > 0 ) {
                 // swiped left
                 if(this.props.currentPictureIndex !== this.props.pictures.length - 1){
-                    this.setState({
-                        currentPictureIndex : this.props.currentPictureIndex + 1
-                    })
+                    this.props.incrementPictureIndex();
                 }else{
                     console.log('cant swipe left anymore')
                 }
             } else {
                 /* right swipe */
                 if(this.props.currentPictureIndex !== 0){
-                    this.setState({
-                        currentPictureIndex : this.props.currentPictureIndex - 1
-                    })
+                    this.props.decrementPictureIndex()
                 }else{
                     console.log('cant swipe right anymore')
                 }
@@ -99,5 +96,12 @@ const mapStateToProps = (state) =>{
     }
 }
 
+const mapDispatchToProps = (dispatch, ownProps) =>{
+    return {
+        incrementPictureIndex : () => dispatch(incrementPictureIndex()),
+        decrementPictureIndex : () => dispatch(decrementPictureIndex())
+    }
+}
 
-export default connect(mapStateToProps)(PictureHolder)
+
+export default connect(mapStateToProps, mapDispatchToProps)(PictureHolder)
