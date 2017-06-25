@@ -12,7 +12,6 @@ const initialState = {
     {text : "pic 2", tags : [{name: "happy"}, {name: "fun"}]},
     {text : "pic 3", tags : [{name: "bad"}]},
   ],
-
   tags: ["Thailand", "Lebanon", "Qatar"]
 }
 
@@ -21,7 +20,7 @@ const store = createStore(allReducers, initialState);
 
 render(
   <Provider store={store}>
-    <PictureHolder pictures={pictures} tags={tags}/>
+    <PictureHolder/>
   </Provider>
     ,document.getElementById('root')
 );
