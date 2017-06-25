@@ -2,7 +2,7 @@ import React from 'react';
 import {render} from 'react-dom';
 import {createStore} from 'redux';
 import {Provider} from 'react-redux'
-import {allReducers} from './reducers'
+import allReducers from './reducers'
 import Styles from './styles.sass';
 import PictureHolder from './components/picture-holder/'
 
@@ -18,7 +18,7 @@ let tags = ["Thailand", "Lebanon", "Qatar"]
 
 
 render(
-  <Provider store = {store}>
+  <Provider store={store}>
     <PictureHolder pictures={pictures} tags={tags}/>
   </Provider>
     ,document.getElementById('root')
