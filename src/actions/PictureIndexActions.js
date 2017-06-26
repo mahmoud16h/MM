@@ -1,5 +1,4 @@
-export const incrementPictureIndex = (index, pictureSize) => {
-    if(index =)
+export const incrementPictureIndex = () => {
     return {
         type: 'INCREMENT'
     }
