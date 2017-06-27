@@ -7,21 +7,20 @@ import Styles from './styles.sass';
 import PictureHolder from './components/picture-holder/'
 
 const initialState = {
-  pictures: [
-    {text : "pic 1", tags : [{name: "happy"}, {name: "phi phi"}]},
-    {text : "pic 2", tags : [{name: "happy"}, {name: "fun"}]},
-    {text : "pic 3", tags : [{name: "bad"}]},
-  ],
-  tags: ["Thailand", "Lebanon", "Qatar"],
-
-  currentPictureIndex: 0
-}
+    pictures: [
+        {text : "pic 1", tags : [{name: "happy"}, {name: "phi phi"}]},
+        {text : "pic 2", tags : [{name: "happy"}, {name: "fun"}]},
+        {text : "pic 3", tags : [{name: "bad"}]},
+    ],
+    tags: ["Thailand", "Lebanon", "Qatar"],
+    currentPictureIndex: 0
+};
 
 const store = createStore(allReducers, initialState);
 
 render(
-  <Provider store={store}>
-    <PictureHolder/>
-  </Provider>
+    <Provider store={store}>
+        <PictureHolder/>
+    </Provider>
     ,document.getElementById('root')
 );

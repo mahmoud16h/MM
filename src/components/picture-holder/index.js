@@ -92,7 +92,7 @@ const mapStateToProps = (state) =>{
     }
 }
 
-const mapDispatchToProps = (dispatch, ownProps) =>{
+const mapDispatchToProps = (dispatch) =>{
     return {
         incrementPictureIndex : () => dispatch(incrementPictureIndex()),
         decrementPictureIndex : () => dispatch(decrementPictureIndex())

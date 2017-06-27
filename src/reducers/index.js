@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import PictureReducer from './pictureReducer'
-import TagsReducer from './tagsReducer'
+import PictureReducer from './PictureReducer'
+import TagsReducer from './TagsReducer'
 import PictureIndexReducer from './PictureIndexReducer'
 
 const allReducers = combineReducers({

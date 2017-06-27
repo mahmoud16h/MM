@@ -1,11 +1,11 @@
-const PictureIndexReducer = (state=0, action) => {
+const PictureIndexReducer = (currentPictureIndex, action) => {
     switch (action.type) {
         case 'INCREMENT':
-            return state+1;
+            return currentPictureIndex+1;
         case 'DECREMENT':
-            return state-1;
+            return currentPictureIndex-1;
         default:
-            return state
+            return currentPictureIndex
     }
 }
 

@@ -1,9 +1,9 @@
-const TagsReducer = (state=null, action) => {
+const TagsReducer = (tags, action) => {
     switch (action.type) {
         case 'TODO-TAGS':
-            return state;
+            return tags;
         default:
-            return state
+            return tags
     }
 }
 
