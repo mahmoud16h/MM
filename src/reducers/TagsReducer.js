@@ -1,4 +1,4 @@
-const TagsReducer = (tags, action) => {
+const TagsReducer = (tags=[], action) => {
     switch (action.type) {
         case 'TODO-TAGS':
             return tags;

@@ -1,4 +1,4 @@
-const PictureReducer = (pictures, action) => {
+const PictureReducer = (pictures=[], action) => {
     switch (action.type) {
         case 'ADD-TAG-TO-PICTURE':
             //TODO : implement
