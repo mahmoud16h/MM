@@ -8,7 +8,7 @@ class Tag extends React.Component{
     render(){
         if(this.props.hasOnClick){
             return(
-                <div onClick={this.props.addTags} className="tag">{this.props.tagName}</div>
+                <div onClick={() => {this.props.addTags(this.props.tagName, 0)}} className="tag">{this.props.tagName}</div>
             )
         }else{
             return(
@@ -20,7 +20,7 @@ class Tag extends React.Component{
 
 const mapDispatchToProps = (dispatch) =>{
   return {
-    addTags : () => dispatch(addTagToPicture())
+    addTags : (tag, pictureId) => dispatch(addTagToPicture(tag, pictureId))
   }
 }
 
