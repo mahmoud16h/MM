@@ -67,14 +67,16 @@ class PictureHolder extends React.Component{
 
     render(){
 
-        let pictures = this.props.pictures.map((pic) => {
-            return <Picture picture={pic}/>
+
+        let pictureComponents = [];
+        this.props.pictures.valueSeq().forEach((pic) => {
+                pictureComponents.push(<Picture picture={pic}/>);
         })
 
         return(
             <div className="tagger-div">
                 <div id="picture-holder">
-                    {pictures[this.props.currentPictureIndex]}
+                    {pictureComponents[this.props.currentPictureIndex]}
                 </div>
 
                 <Tagger tags={this.props.tags}/>

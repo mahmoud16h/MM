@@ -8,7 +8,7 @@ class Tag extends React.Component{
     render(){
         if(this.props.hasOnClick){
             return(
-                <div onClick={() => {this.props.addTags(this.props.tagName, 0)}} className="tag">{this.props.tagName}</div>
+                <div onClick={() => {this.props.addTags(this.props.tagName, this.props.currentPictureIndex)}} className="tag">{this.props.tagName}</div>
             )
         }else{
             return(
@@ -24,4 +24,10 @@ const mapDispatchToProps = (dispatch) =>{
   }
 }
 
-export default connect(null,mapDispatchToProps)(Tag);
+const mapStateToProps = (state) =>{
+  return {
+    currentPictureIndex : state.currentPictureIndex
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Tag);
