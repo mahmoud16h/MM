@@ -6,9 +6,40 @@ import {toggleXMode} from '../../actions/PictureActions'
 
 class Tag extends React.Component{
 
+    constructor(props){
+        super(props);
+        this.state = {
+            timer : null,
+            time : 0
+        }
+    }
+
+    handleMouseDown = () => {
+        if(!this.state.timer) {
+            this.state = {
+                ...this.state,
+                timer: setInterval(() => {
+                    this.state = { ...this.state, time: this.state.time + 500}
+                    if(this.state.time >= 750){
+                        this.props.toggleXMode();
+                        this.handleMouseUp();
+                    }
+                }, 250)
+            }
+        }
+    }
+
+    handleMouseUp = () => {
+        if(this.state.timer) {
+            clearInterval(this.state.timer);
+            this.setState({
+                timer: null,
+                time: 0
+            })
+        }
+    }
+
     render() {
-
-
         if (this.props.hasOnClick) {
             return (
                 <div onClick={() => {this.props.addTags(this.props.tagName, this.props.currentPictureIndex)}} className="tag">{this.props.tagName}</div>
@@ -16,7 +47,7 @@ class Tag extends React.Component{
         } else {
             return (
                 <div className="tag">
-                    <div onDoubleClick={this.props.toggleXMode}>{this.props.tagName}</div>
+                    <div onMouseDown={this.handleMouseDown} onMouseUp={this.handleMouseUp}>{this.props.tagName}</div>
                     {this.props.inXMode ?
                         <div className="xMode" onClick={() => {this.props.removeTags(this.props.tagName, this.props.currentPictureIndex)}} >X</div>
                         : null
@@ -28,18 +59,18 @@ class Tag extends React.Component{
 }
 
 const mapDispatchToProps = (dispatch) =>{
-  return {
+    return {
         addTags : (tag, pictureId) => dispatch(addTagToPicture(tag, pictureId)),
         removeTags : (tag, pictureId) => dispatch(removeTagFromPicture(tag, pictureId)),
         toggleXMode : () => dispatch(toggleXMode())
-  }
+    }
 }
 
 const mapStateToProps = (state) =>{
-  return {
-    currentPictureIndex : state.currentPictureIndex,
-      inXMode: state.global.xMode
-  }
+    return {
+        currentPictureIndex : state.currentPictureIndex,
+        inXMode: state.global.xMode
+    }
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Tag);
