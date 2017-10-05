@@ -1,7 +1,8 @@
 import React from 'react'
 import Tag from '../tag'
 
-export default class Picture extends React.Component{
+
+class Picture extends React.Component{
 
   getTags(){
     if(this.props.picture.tags){
@@ -19,3 +20,7 @@ export default class Picture extends React.Component{
     );
   }
 }
+
+
+
+export default Picture;

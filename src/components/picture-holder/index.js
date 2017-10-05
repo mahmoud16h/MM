@@ -38,7 +38,7 @@ class PictureHolder extends React.Component{
         if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
             if ( xDiff > 0 ) {
                 // swiped left
-                if(this.props.currentPictureIndex !== this.props.pictures.length - 1){
+                if(this.props.currentPictureIndex !== this.props.pictures.size - 1){
                     this.props.incrementPictureIndex();
                 }else{
                     console.log('cant swipe left anymore')
@@ -67,16 +67,10 @@ class PictureHolder extends React.Component{
 
     render(){
 
-
-        let pictureComponents = [];
-        this.props.pictures.valueSeq().forEach((pic) => {
-                pictureComponents.push(<Picture picture={pic}/>);
-        })
-
         return(
             <div className="tagger-div">
                 <div id="picture-holder">
-                    {pictureComponents[this.props.currentPictureIndex]}
+                    <Picture picture={this.props.pictures.get(this.props.currentPictureIndex.toString())}/>
                 </div>
 
                 <Tagger tags={this.props.tags}/>
